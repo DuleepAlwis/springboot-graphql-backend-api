@@ -1,0 +1,122 @@
+type Query{
+    getAllUsers:[User]
+    getTutorProfile(userId:Int):Tutor
+    getCoursesByUserId(userId:Int):[Course]
+}
+
+type Mutation{
+    createUser(user:UserModel):GeneralResponseModel
+    login(email:String,password:String):LoginResponseModel
+    createTutor(tutor:TutorModel):GeneralResponseModel
+    createCourse(course:CourseModel):GeneralResponseModel
+}
+
+input UserModel{
+    username:String!
+    password:String!
+    email:String!
+    role:String!
+}
+
+input TutorModel{
+    id:Int
+    name:String
+    address:String
+    city:String
+    district:String
+    country:String
+    gender:String
+    qualification:String
+    user:UserInput
+}
+
+input UserInput{
+    id:Int
+    username:String
+    email:String
+    lastLoggin:String
+    role:String
+    activeStatus:String
+}
+
+input CourseModel{
+    userId:Int!
+    name:String!
+    description:String
+    price:Int
+    discount:Int
+}
+
+type LoginResponseModel{
+
+    token:String
+    user:User
+    responseMessage:String
+    responseStatus:Boolean
+}
+
+type User {
+    id:Int
+    username:String
+    email:String
+    lastLoggin:String
+    role:String
+    activeStatus:String
+}
+
+type Tutor{
+    id:Int
+    name:String
+    address:String
+    city:String
+    district:String
+    country:String
+    gender:String
+    qualification:String
+    user:User
+}
+
+type Student{
+    id:Int
+    name:String
+    address:String
+    city:String
+    district:String
+    country:String
+    gender:String
+    user:User
+}
+
+type Course{
+    id:Int
+    name:String
+    description:String
+    price:Int
+    discount:Int
+    rating:Int
+}
+
+type TutorCourse{
+    id:Int
+    tutor:Tutor
+    course:Course
+}
+
+type StudentCourse{
+    id:Int
+    student:Student
+    tutorCourse:TutorCourse
+}
+
+type SystemProperty{
+    id:Int
+    key:String
+    value:String
+    enabled:Boolean
+    description:String
+}
+
+type GeneralResponseModel{
+    responseStatus:Boolean
+    responseMessage:String
+}
