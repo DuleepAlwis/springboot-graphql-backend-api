@@ -1,5 +1,5 @@
-/*
 
+/*
 package com.onlinelearningplatform.onlineLearningPlatform;
 
 import com.onlinelearningplatform.config.auth.JWTAuthenticationFilter;
@@ -71,12 +71,10 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         protected void configure(HttpSecurity http) throws Exception {
 
 
-
- */
-/*http.cors().configurationSource(request -> {
+            http.cors().configurationSource(request -> {
                         var cors = new CorsConfiguration();
                         cors.setAllowedOrigins(List.of("http://localhost:3000", "http://127.0.0.1:3000"));
-                        cors.setAllowedMethods(List.of("GET","POST", "PUT", "DELETE", "OPTIONS"));
+                        cors.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
                         cors.setAllowedHeaders(List.of("*"));
                         return cors;
                     })
@@ -90,15 +88,13 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
             http.csrf().disable().cors().and().headers().frameOptions().disable();
 
 
-
-        }*//*
-
         }
+
+
     }
-
-
-
-
-
 }
 */
+
+
+
+

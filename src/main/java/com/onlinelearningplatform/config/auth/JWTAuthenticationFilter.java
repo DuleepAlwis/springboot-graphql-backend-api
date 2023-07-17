@@ -1,6 +1,7 @@
 package com.onlinelearningplatform.config.auth;
 
 import com.onlinelearningplatform.service.UserManagementService;
+import jakarta.servlet.Filter;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import org.slf4j.Logger;
@@ -12,7 +13,7 @@ import org.springframework.security.web.authentication.WebAuthenticationDetails;
 import org.springframework.web.filter.OncePerRequestFilter;
 import java.io.IOException;
 
-public class JWTAuthenticationFilter extends OncePerRequestFilter {
+public class JWTAuthenticationFilter extends OncePerRequestFilter implements Filter {
 
     private UserManagementService userManagementService;
 
